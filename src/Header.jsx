@@ -11,13 +11,8 @@ function Header() {
 
  <Link to={'/about'} > <a href="">About</a></Link>
 
- <Link> <a href="">About</a></Link>
 
- <Link><a href="">Contact</a></Link>
-
- <Link><a href="">Contact</a></Link>
-
-<Link><a href="">Signup</a></Link>
+<Link  to={'/signup'}  ><a href="">Signup</a></Link>
       
       
       

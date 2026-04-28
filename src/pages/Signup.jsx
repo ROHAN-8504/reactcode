@@ -1,33 +1,49 @@
 
-// import { useState } from 'react'
-// function Signup() {
-//     const [username, setusername] = useState('')
-//     const [password, setpassword] = useState('')
-//     const [email, setemail] = useState('')
-//   return (
-//     <>
-//     <form onSubmit={}  >
-//    <div>
-//     <label htmlFor="">Username</label>
-//   <input type="text" />
-//    </div>
+import { useState } from 'react'
+function Signup() {
+    const [username, setusername] = useState('')
+    const [password, setpassword] = useState('')
+    const [email, setemail] = useState('')
 
-//    <div>
-//   <label htmlFor="">Email</label>
-//   <input type="email" />
-//    </div>
+  //function which sends my form data to the backend
+ 
+  async function handlesub(e){
+    e.preventDefault() //this will stop reloading the page
+    //post request with user details as a paylod
+   ///api----->   http://localhost:3000/signup
+    let response=await fetch('http://localhost:3000/signup',{
+        method:'POST',
+        headers:{"Content-Type": "application/json"},
+        body:JSON.stringify({username,password,email})
+    })
 
-//    <div>
-//   <label htmlFor="">Password</label>
-//   <input type="password" />
-//    </div>
+    let finalresponse=await response.json()
 
-//    <input type='Check-box' />
+     alert(finalresponse.msg)
 
-//     <button type='submit' >Signup</button>
-//     </form>
-//     </>
-//   )
-// }
+  }
 
-// export default Signup
+  return (
+    <>
+    <form onSubmit={handlesub}  >
+   <div>
+    <label htmlFor="">Username</label>
+  <input type="text"  onChange={e=>setusername(e.target.value)}     />
+   </div>
+
+   <div>
+  <label htmlFor="">Email</label>
+  <input type="email" onChange={e=>setemail(e.target.value)}   />
+   </div>
+
+   <div>
+  <label htmlFor="">Password</label>
+  <input type="password" onChange={e=>setpassword(e.target.value)}     />
+   </div>
+    <button type='submit' >Signup</button>
+    </form>
+    </>
+  )
+}
+
+export default Signup
