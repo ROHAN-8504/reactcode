@@ -14,11 +14,11 @@ function Products() {
   return (
     <>
      
-      <div style={{ display: 'flex', flexWrap: "wrap", gap: "50px" }}  >
+      <div class='flex flex-wrap gap-12 '  >
 
         {
           product.map((p) => {
-            return <div key={p.id} style={{ border: "solid black 1px", borderRadius: "10px" }}  >
+            return <div key={p.id}   class='border-black border border-solid rounded-lg '   >
               <img height={300} width={200} src={p.image} alt="" />
               <p>{p.title.substring(0, 13)}</p>
               <p>{p.price}</p>

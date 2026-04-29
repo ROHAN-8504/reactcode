@@ -40,7 +40,7 @@ function Signup() {
   <label htmlFor="">Password</label>
   <input type="password" onChange={e=>setpassword(e.target.value)}     />
    </div>
-    <button type='submit' >Signup</button>
+    <button class="rounded-md bg-sky-500 transition delay-150 duration-300 ease-in-out ..."  type='submit' >Signup</button>
     </form>
     </>
   )

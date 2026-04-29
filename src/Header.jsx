@@ -2,9 +2,9 @@ import {Link} from "react-router-dom"
 function Header() {
   return (
    <>
-   <div style={{display:"flex",justifyContent:"center",gap:"50px"}}  >
-    <img src="public/favicon.svg" alt="" />
-    <nav style={{display:"flex",gap:"20px"}} >
+   <div class="flex justify-center gap-10"  >
+    <img class="animate-ping"  src="public/favicon.svg" alt="" />
+    <nav class='flex gap-5' >
  <Link to={'/'} ><a href="">Home</a></Link>
       
  <Link to={'/products'} ><a href="">Products</a></Link>

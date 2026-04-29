@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 function Mainpage() {
     let name="rohan";
     let age=100;
@@ -13,6 +13,7 @@ const [image, setimage] = useState('')
 const [showform,setshowform]=useState(false)
 const [isloggedin,setisloggedin]=useState(false)
 const [message,setmessage]=useState(false)
+const [dark,setdark]=useState(false)
 //function which send this product details to the  backend
 
 async function handlesubmit(e){
@@ -37,17 +38,24 @@ let finalresponse=  await response.json()
 }
 
 
+//
+useEffect(() => {
+  document.body.className=dark ? 'bg-black-900 text-white' : 'bg-white-300  text-black'
+  }, [dark])
+
 
   return (
    <>
-   <div style={{border:"solid red 1px"}}>
+   <div class="border-2 border-s-olive-800 bg-s ">
 
-   <p>name:{name}</p>
-   <p>age:{age}</p>
-   <p>comapany:{comapany}</p>
+   <p class="text-white bg-amber-400"  >name:{name}</p>
+   <p class="p-4" >age:{age}</p>
+   <p  class="p-b "  >comapany:{comapany}</p>
    <p>experience:{1+1+1+"years"}</p>
-   </div>
 
+<button class='rounded-[50%] bg-sky-300  hover:bg-emerald-300' >signup</button>
+   </div>
+<button onClick={()=>setdark(!dark)} >{dark?<a>lightmode</a>:<a>darkmode</a>}</button>
   <button onClick={()=>setshowform(true)}   >ADD A PRODUCT</button>
 {showform &&(
     <form onSubmit={handlesubmit}    >
