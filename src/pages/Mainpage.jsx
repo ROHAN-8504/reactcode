@@ -10,7 +10,9 @@ const [id, setid] = useState('')
 const [title, settitle] = useState('')
 const [price, setprice] = useState('')
 const [image, setimage] = useState('')
-
+const [showform,setshowform]=useState(false)
+const [isloggedin,setisloggedin]=useState(false)
+const [message,setmessage]=useState(false)
 //function which send this product details to the  backend
 
 async function handlesubmit(e){
@@ -46,8 +48,8 @@ let finalresponse=  await response.json()
    <p>experience:{1+1+1+"years"}</p>
    </div>
 
-  <button>ADD A PRODUCT</button>
-
+  <button onClick={()=>setshowform(true)}   >ADD A PRODUCT</button>
+{showform &&(
     <form onSubmit={handlesubmit}    >
      <input type="text" placeholder="id"   onChange={e=>setid(e.target.value)}     />
      <input type="text" placeholder="title" onChange={e=>settitle(e.target.value)}   />
@@ -55,8 +57,16 @@ let finalresponse=  await response.json()
      <input type="text" placeholder="image" onChange={e=>setimage(e.target.value)}  />
      <button type="submit"   >Submit</button>
     </form>
+)
+}
 
 
+<button onClick={()=>setisloggedin(true)}>
+  {isloggedin?<a>submit</a>:<a>dont submit</a>}
+</button>
+
+<button onClick={()=>setmessage(true)} >change status</button>
+{message?<p>hi welcome back</p>:<p>register</p>}
 
 
    </>
