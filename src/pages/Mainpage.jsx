@@ -40,7 +40,9 @@ let finalresponse=  await response.json()
 
 //
 useEffect(() => {
-  document.body.className=dark ? 'bg-black-900 text-white' : 'bg-white-300  text-black'
+  document.body.className = dark
+    ? 'bg-slate-900 text-white'
+    : 'bg-white text-slate-900'
   }, [dark])
 
 
